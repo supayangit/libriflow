@@ -30,7 +30,7 @@ const SignupPage = () => {
 
         const { data: res, error } = await authClient.signUp.email({
             name: data.name,
-            photo: data.photo_url,
+            image: data.image_url,
             email: data.email,
             password: data.password,
             callbackURL: "/",
@@ -85,11 +85,11 @@ const SignupPage = () => {
 
                 {/* Photo */}
                 <div className="flex flex-col gap-1">
-                    <Label>Photo</Label>
+                    <Label>Image</Label>
                     <Input
-                        placeholder="Photo Url"
-                        {...register("photo_url", {
-                            required: "Url is required",
+                        placeholder="Image URL"
+                        {...register("image_url", {
+                            required: "Image url is required",
                             minLength: {
                                 value: 5,
                                 message: "At least 5 characters",

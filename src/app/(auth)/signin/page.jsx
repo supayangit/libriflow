@@ -21,7 +21,7 @@ const SigninPage = () => {
 
   const onSubmit = async (data) => {
     try {
-      const { error } = await authClient.signInWithEmail({
+      const { error } = await authClient.signIn.email({
         email: data.email,
         password: data.password,
       });
