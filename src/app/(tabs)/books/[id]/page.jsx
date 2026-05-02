@@ -10,6 +10,8 @@ const BookDetailsPage = () => {
   const params = useParams();
   const id = parseInt(params.id);
 
+  const [borrowed, setBorrowed] = useState(false);
+
   const book = Books.find((b) => b.id === id);
 
   if (!book) {
@@ -21,8 +23,6 @@ const BookDetailsPage = () => {
       </div>
     );
   }
-
- const [borrowed, setBorrowed] = useState(false);
 
   const handleBorrow = () => {
     if (borrowed) return;
