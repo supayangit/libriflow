@@ -5,17 +5,14 @@ import BookCard from '@/app/components/book/BookCard';
 import BooksHeader from '@/app/components/book/BooksHeader';
 
 const BooksPage = () => {
-    const[activeCategory, setActiveCategory] = useState("All");
-    const filteredBooks = activeCategory == "All" ? Books :
-    Books.filter((book) => book.category === activeCategory);
 
     return (
         <div className="p-20 space-y-10">
 
-            <BooksHeader activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
+            <BooksHeader activeCategory="All" />
 
             <div className="grid grid-cols-5 gap-4">
-                {filteredBooks.map((book) => (
+                {Books.map((book) => (
                     <BookCard key={book.id} book={book} />
                 ))}
             </div>

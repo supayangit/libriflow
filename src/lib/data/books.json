@@ -3,220 +3,240 @@
     "id": 1,
     "title": "The Great Gatsby",
     "author": "F. Scott Fitzgerald",
-    "description": "A tragic story of wealth, love, and the American Dream set in the Roaring Twenties.",
+    "description": "A richly symbolic novel exploring wealth, illusion, love, and moral decay in 1920s America, centered around Jay Gatsby’s obsessive pursuit of a lost past and the American Dream.",
     "category": "Story",
     "available_quantity": 8,
     "image_url": "https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg",
     "publication_year": 1925,
     "total_reads": 8421
   },
-  {
-    "id": 2,
-    "title": "To Kill a Mockingbird",
-    "author": "Harper Lee",
-    "description": "A powerful exploration of racial injustice and moral growth in the American South.",
-    "category": "Story",
-    "available_quantity": 10,
-    "image_url": "https://covers.openlibrary.org/b/isbn/9780061120084-L.jpg",
-    "publication_year": 1960,
-    "total_reads": 12543
-  },
-  {
-    "id": 3,
-    "title": "1984",
-    "author": "George Orwell",
-    "description": "A dystopian novel depicting a totalitarian regime and extreme surveillance.",
-    "category": "Story",
-    "available_quantity": 6,
-    "image_url": "https://covers.openlibrary.org/b/isbn/9780141036144-L.jpg",
-    "publication_year": 1949,
-    "total_reads": 19382
-  },
+
   {
     "id": 4,
     "title": "The Hobbit",
     "author": "J.R.R. Tolkien",
-    "description": "A fantasy adventure following Bilbo Baggins on a quest to reclaim a lost treasure.",
+    "description": "A classic fantasy tale following Bilbo Baggins as he is swept into an unexpected adventure involving dragons, treasure, and personal growth in a richly built mythical world.",
     "category": "Story",
     "available_quantity": 7,
     "image_url": "https://covers.openlibrary.org/b/isbn/9780547928227-L.jpg",
     "publication_year": 1937,
     "total_reads": 15670
   },
+
   {
     "id": 5,
     "title": "Harry Potter and the Sorcerer's Stone",
     "author": "J.K. Rowling",
-    "description": "A young boy discovers he is a wizard and begins his journey at Hogwarts.",
+    "description": "A fantasy coming-of-age story where a young boy discovers his magical identity and enters a hidden world of witches, wizards, friendship, and dark forces at Hogwarts.",
     "category": "Story",
     "available_quantity": 12,
     "image_url": "https://covers.openlibrary.org/b/isbn/9780590353427-L.jpg",
     "publication_year": 1997,
     "total_reads": 29841
   },
+
   {
     "id": 6,
     "title": "Clean Code",
     "author": "Robert C. Martin",
-    "description": "A handbook of agile software craftsmanship focusing on writing clean and maintainable code.",
+    "description": "A foundational software engineering guide that teaches principles, techniques, and mindset for writing clean, readable, maintainable, and professional-quality code.",
     "category": "Tech",
     "available_quantity": 5,
     "image_url": "https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg",
     "publication_year": 2008,
     "total_reads": 9876
   },
+
   {
     "id": 7,
     "title": "The Pragmatic Programmer",
     "author": "Andrew Hunt and David Thomas",
-    "description": "A guide to becoming a better programmer through practical advice and best practices.",
+    "description": "A practical guide to software development emphasizing adaptable thinking, craftsmanship, problem-solving skills, and long-term professional growth for programmers.",
     "category": "Tech",
     "available_quantity": 4,
     "image_url": "https://covers.openlibrary.org/b/isbn/9780201616224-L.jpg",
     "publication_year": 1999,
     "total_reads": 11234
   },
+
+  {
+    "id": 2,
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "description": "A deeply human story addressing racial injustice, childhood innocence, and moral integrity through the eyes of a young girl in the segregated American South.",
+    "category": "Story",
+    "available_quantity": 10,
+    "image_url": "https://covers.openlibrary.org/b/isbn/9780061120084-L.jpg",
+    "publication_year": 1960,
+    "total_reads": 12543
+  },
+
   {
     "id": 8,
     "title": "Introduction to Algorithms",
     "author": "Thomas H. Cormen",
-    "description": "A comprehensive textbook covering a wide range of algorithms in depth.",
+    "description": "A comprehensive academic textbook that systematically explains fundamental algorithms, data structures, and computational problem-solving techniques used in computer science.",
     "category": "Tech",
     "available_quantity": 3,
     "image_url": "https://covers.openlibrary.org/b/isbn/9780262033848-L.jpg",
     "publication_year": 1990,
     "total_reads": 7654
   },
+
   {
     "id": 9,
     "title": "A Brief History of Time",
     "author": "Stephen Hawking",
-    "description": "An accessible overview of cosmology, black holes, and the nature of the universe.",
+    "description": "A landmark science book that simplifies complex ideas about the universe, including black holes, time, space, and cosmology, for general readers.",
     "category": "Science",
     "available_quantity": 9,
     "image_url": "https://covers.openlibrary.org/b/isbn/9780553380163-L.jpg",
     "publication_year": 1988,
     "total_reads": 14322
   },
+
+  {
+    "id": 3,
+    "title": "1984",
+    "author": "George Orwell",
+    "description": "A dystopian masterpiece depicting a future society ruled by surveillance, propaganda, and authoritarian control, exploring themes of truth, freedom, and oppression.",
+    "category": "Story",
+    "available_quantity": 6,
+    "image_url": "https://covers.openlibrary.org/b/isbn/9780141036144-L.jpg",
+    "publication_year": 1949,
+    "total_reads": 19382
+  },
+
   {
     "id": 10,
     "title": "The Selfish Gene",
     "author": "Richard Dawkins",
-    "description": "An influential book on evolution focusing on genes as the unit of natural selection.",
+    "description": "An influential evolutionary biology work that reframes natural selection through the idea of genes as the primary units driving behavior, survival, and evolution.",
     "category": "Science",
     "available_quantity": 6,
     "image_url": "https://covers.openlibrary.org/b/isbn/9780199291151-L.jpg",
     "publication_year": 1976,
     "total_reads": 10345
   },
+  
   {
     "id": 11,
     "title": "Sapiens: A Brief History of Humankind",
     "author": "Yuval Noah Harari",
-    "description": "A sweeping narrative of human history from ancient times to the present.",
+    "description": "A sweeping interdisciplinary narrative that traces the evolution of humankind from early Homo sapiens to modern civilization, exploring biology, anthropology, culture, economics, and the forces that shaped societies, beliefs, and global systems.",
     "category": "Science",
     "available_quantity": 11,
     "image_url": "https://covers.openlibrary.org/b/isbn/9780062316097-L.jpg",
     "publication_year": 2011,
     "total_reads": 28765
   },
+
   {
     "id": 12,
     "title": "The Origin of Species",
     "author": "Charles Darwin",
-    "description": "A foundational work of evolutionary biology introducing natural selection.",
+    "description": "A groundbreaking scientific work that lays the foundation of evolutionary theory, explaining how natural selection drives the adaptation and diversification of life over long periods of time through observable biological variation.",
     "category": "Science",
     "available_quantity": 2,
-    "image_url": "https://covers.openlibrary.org/b/isbn/9781509827695-L.jpg",
+    "image_url": "https://covers.openlibrary.org/b/isbn/9780140439120-L.jpg",
     "publication_year": 1859,
     "total_reads": 6521
   },
+
   {
     "id": 13,
     "title": "The Alchemist",
     "author": "Paulo Coelho",
-    "description": "A philosophical story about following your dreams and destiny.",
+    "description": "A philosophical and allegorical novel that follows a young shepherd’s journey across deserts and cultures in search of personal destiny, exploring universal themes of purpose, intuition, spirituality, and self-discovery.",
     "category": "Story",
     "available_quantity": 9,
     "image_url": "https://covers.openlibrary.org/b/isbn/9780062315007-L.jpg",
     "publication_year": 1988,
     "total_reads": 22110
   },
+
   {
     "id": 14,
     "title": "Thinking, Fast and Slow",
     "author": "Daniel Kahneman",
-    "description": "Explores the two systems of thought that drive human decision-making.",
+    "description": "A deep exploration of human cognition that explains how two systems of thinking—fast intuitive reactions and slow analytical reasoning—shape judgment, decision-making, biases, and everyday behavior.",
     "category": "Psychology",
     "available_quantity": 7,
     "image_url": "https://covers.openlibrary.org/b/isbn/9780374533557-L.jpg",
     "publication_year": 2011,
     "total_reads": 17890
   },
+
   {
     "id": 15,
     "title": "Atomic Habits",
     "author": "James Clear",
-    "description": "A guide to building good habits and breaking bad ones through small changes.",
-    "category": "Self-Help",
+    "description": "A practical and research-backed guide to behavior change that explains how small, consistent improvements compound over time to build effective habits, break harmful patterns, and achieve long-term personal growth.",
+    "category": "Growth",
     "available_quantity": 14,
     "image_url": "https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg",
     "publication_year": 2018,
     "total_reads": 35210
   },
+
   {
     "id": 16,
     "title": "The Subtle Art of Not Giving a F*ck",
     "author": "Mark Manson",
-    "description": "A counterintuitive approach to living a good life by focusing on what matters.",
-    "category": "Self-Help",
+    "description": "A philosophical self-help book that challenges conventional positivity culture by emphasizing responsibility, values, and selective care, encouraging readers to focus only on what truly matters for a meaningful life.",
+    "category": "Growth",
     "available_quantity": 10,
     "image_url": "https://covers.openlibrary.org/b/isbn/9780062457714-L.jpg",
     "publication_year": 2016,
     "total_reads": 26430
   },
+
   {
     "id": 17,
     "title": "Deep Work",
     "author": "Cal Newport",
-    "description": "Focuses on achieving high productivity through deep, distraction-free work.",
-    "category": "Self-Help",
+    "description": "A productivity-focused guide that explores the ability to concentrate without distraction on cognitively demanding tasks, arguing that deep focus is a rare and valuable skill in an increasingly distracted world.",
+    "category": "Growth",
     "available_quantity": 8,
     "image_url": "https://covers.openlibrary.org/b/isbn/9781455586691-L.jpg",
     "publication_year": 2016,
     "total_reads": 18900
   },
+
   {
     "id": 18,
     "title": "The Lean Startup",
     "author": "Eric Ries",
-    "description": "A methodology for developing businesses and products efficiently.",
+    "description": "A modern business methodology that promotes iterative product development, validated learning, and rapid experimentation to help startups and companies reduce risk and build successful, scalable products efficiently.",
     "category": "Business",
     "available_quantity": 5,
     "image_url": "https://covers.openlibrary.org/b/isbn/9780307887894-L.jpg",
     "publication_year": 2011,
     "total_reads": 14680
   },
+
   {
     "id": 19,
     "title": "Rich Dad Poor Dad",
     "author": "Robert Kiyosaki",
-    "description": "Teaches financial literacy through contrasting two father figures.",
+    "description": "A personal finance book that contrasts two different financial mindsets through the stories of two father figures, teaching lessons on money management, investing, assets, and financial independence.",
     "category": "Finance",
     "available_quantity": 12,
     "image_url": "https://covers.openlibrary.org/b/isbn/9781612680194-L.jpg",
     "publication_year": 1997,
     "total_reads": 31050
   },
+
   {
     "id": 20,
     "title": "Educated",
     "author": "Tara Westover",
-    "description": "A memoir about growing up in isolation and pursuing education against all odds.",
+    "description": "A powerful memoir recounting a journey from a strict and isolated upbringing in rural Idaho to achieving academic success, highlighting themes of resilience, identity, self-education, and transformation through learning.",
     "category": "Biography",
     "available_quantity": 6,
     "image_url": "https://covers.openlibrary.org/b/isbn/9780399590504-L.jpg",
     "publication_year": 2018,
     "total_reads": 22190
   }
+
 ]

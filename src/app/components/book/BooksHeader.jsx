@@ -2,7 +2,7 @@ import React from 'react';
 import { Label, SearchField } from "@heroui/react";
 import BooksNavbar from './BooksNavbar'
 
-const BooksHeader = ({activeCategory, setActiveCategory}) => {
+const BooksHeader = ({activeCategory}) => {
     return (
         <div className='w-full space-y-10 border-b border-gray-200 pb-10'>
             <div>
@@ -18,7 +18,7 @@ const BooksHeader = ({activeCategory, setActiveCategory}) => {
                 </SearchField.Group>
             </SearchField>
 
-            <BooksNavbar activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
+            <BooksNavbar activeCategory={activeCategory} />
         </div>
     );
 };

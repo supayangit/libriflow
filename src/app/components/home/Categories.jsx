@@ -2,7 +2,7 @@ import React from 'react';
 
 const Categories = () => {
     return (
-        <section className="bg-gray-50">
+        <section className="">
             <div className="mx-auto text-center">
 
                 <h2 className="text-2xl font-semibold mb-8">

@@ -4,7 +4,7 @@ import Books from '@/lib/data/books.json';
 
 const Feature = () => {
     return (
-        <section className="bg-white p-10">
+        <section className="p-10">
             <div className="mx-auto">
 
                 <div className="flex justify-between items-center mb-8">

@@ -1,10 +1,9 @@
 import React from 'react';
-import Header from "@/app/components/shared/Header";
+import {Button} from "@heroui/react";
 
 const TabsLayout = ({ children }) => {
     return (
         <main className=''>
-            <Header />
             {children}
         </main>
     );
