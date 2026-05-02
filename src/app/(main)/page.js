@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Banner from "./components/home/Banner";
+import Banner from "../components/home/Banner";
 import Marquee from "react-fast-marquee";
-import Feature from "./components/home/Feature";
-import Categories from "./components/home/Categories";
-import Stats from "./components/home/Stats";
+import Feature from "../components/home/Feature";
+import Categories from "../components/home/Categories";
+import Stats from "../components/home/Stats";
 
 export default function Home() {
   return (
