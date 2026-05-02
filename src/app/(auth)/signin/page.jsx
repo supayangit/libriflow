@@ -110,12 +110,12 @@ const SigninPage = () => {
 
         {/* Buttons */}
         <div className="flex gap-2">
-          <Button type="submit">
+          <Button type="submit" className="bg-blue-600">
             <Check />
             Sign In
           </Button>
 
-          <Button type="reset" variant="secondary">
+          <Button type="reset" variant="secondary" className="text-blue-600">
             Reset
           </Button>
         </div>

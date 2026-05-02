@@ -1,18 +1,35 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Books from "@/lib/data/books.json";
 import Image from "next/image";
 import { toast } from "react-toastify";
-import { useState } from 'react';
+import { useState, useEffect } from "react";
+import { authClient } from "@/lib/auth-client";
 
 const BookDetailsPage = () => {
   const params = useParams();
+  const router = useRouter();
   const id = parseInt(params.id);
 
   const [borrowed, setBorrowed] = useState(false);
+  const [session, setSession] = useState(null);
 
   const book = Books.find((b) => b.id === id);
+
+  useEffect(() => {
+    const getSession = async () => {
+      try {
+        const res = await authClient.getSession();
+        const data = res?.data || res;
+        setSession(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    getSession();
+  }, []);
 
   if (!book) {
     return (
@@ -25,10 +42,14 @@ const BookDetailsPage = () => {
   }
 
   const handleBorrow = () => {
+    if (!session?.user) {
+      router.push("/signin");
+      return;
+    }
+
     if (borrowed) return;
 
     setBorrowed(true);
-
     toast.success(`"${book.title}" borrowed successfully!`);
   };
 
@@ -54,7 +75,6 @@ const BookDetailsPage = () => {
           <p className="text-gray-700">by {book.author}</p>
         </div>
 
-        {/* Availability */}
         <div className="bg-green-100 p-4 rounded-lg text-sm">
           <p className="font-semibold">Available</p>
           <p className="text-gray-600">
@@ -73,15 +93,16 @@ const BookDetailsPage = () => {
           onClick={handleBorrow}
           disabled={borrowed}
           className={`w-full py-3 rounded-lg shadow transition cursor-pointer
-            ${borrowed
-              ? "bg-green-600 text-white cursor-not-allowed"
-              : "bg-blue-600 text-white hover:bg-blue-700"
+            ${
+              borrowed
+                ? "bg-green-600 text-white cursor-not-allowed"
+                : "bg-blue-600 text-white hover:bg-blue-700"
             }`}
         >
           {borrowed ? "Borrowed ✓" : "Borrow Book"}
         </button>
 
-        {/* Extra Info */}
+        {/* Extra info */}
         <div className="grid grid-cols-2 gap-4 pt-6 text-sm text-gray-600">
           <div>
             <p className="font-bold text-sm">PUBLICATION</p>
