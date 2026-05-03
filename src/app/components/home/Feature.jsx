@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Books from '@/lib/data/books.json';
+import Link from 'next/link';
 
 const Feature = () => {
     return (
@@ -14,7 +15,9 @@ const Feature = () => {
                             Handpicked selections by our expert curators.
                         </p>
                     </div>
-                    <a href="/books" className="text-blue-600">View all</a>
+                    <Link href="/books" className="text-blue-600 hover:text-blue-800 transition">
+                        View all
+                    </Link>
                 </div>
 
                 <div className="grid grid-cols-4 gap-4">

@@ -34,7 +34,7 @@ export default function ProfileLayout({ children }) {
   // Prevent UI glitch
   if (loading) {
     return (
-      <div className="h-screen flex items-center justify-center text-gray-500">
+      <div className="min-h-screen flex items-center justify-center text-gray-500 bg-gray-50">
         Checking authentication...
       </div>
     );

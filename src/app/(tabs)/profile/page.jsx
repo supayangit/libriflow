@@ -56,10 +56,10 @@ const ProfilePage = () => {
             }));
 
             setEditing(false);
-            toast.success("Profile updated successfully ✅");
+            toast.success("Profile updated successfully!");
         } catch (err) {
             console.error(err);
-            toast.error("Update failed ❌");
+            toast.error("Update failed!");
         }
     };
 
@@ -82,7 +82,7 @@ const ProfilePage = () => {
     const user = session.user;
 
     return (
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center px-6 py-20">
+        <div className="flex justify-center p-10">
             <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-8 space-y-6">
 
                 {/* Header */}
@@ -91,16 +91,18 @@ const ProfilePage = () => {
                     <div className="flex items-center gap-6">
 
                         {/* Avatar */}
-                        <div className="relative w-24 h-24 rounded-full overflow-hidden border">
-                            <Image
-                                src={editing ? formData.image || "/default-avatar.png" : user.image || "/default-avatar.png"}
-                                alt="User"
-                                fill
-                                className="object-cover"
-                            />
+                        <div className="p-[3px] rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500">
+                            <div className="relative w-30 h-30 rounded-full overflow-hidden bg-white">
+                                <Image
+                                    src={editing ? formData.image || "/default-avatar.png" : user.image || "/default-avatar.png"}
+                                    alt="User"
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
                         </div>
 
-                        {/* Name + Email */}
+                        {/* Name and Email */}
                         <div>
                             {editing ? (
                                 <input
@@ -119,7 +121,7 @@ const ProfilePage = () => {
                         </div>
                     </div>
 
-                    {/* Edit / Save */}
+                    {/* Edit and Save */}
                     <div>
                         {editing ? (
                             <div className="flex gap-2">
@@ -139,7 +141,7 @@ const ProfilePage = () => {
                         ) : (
                             <button
                                 onClick={() => setEditing(true)}
-                                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+                                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer"
                             >
                                 Edit
                             </button>
@@ -147,7 +149,7 @@ const ProfilePage = () => {
                     </div>
                 </div>
 
-                {/* Image URL Field (only in edit mode) */}
+                {/* Image URL Field in edit mode */}
                 {editing && (
                     <div>
                         <label className="text-sm text-gray-500">Profile Image URL</label>

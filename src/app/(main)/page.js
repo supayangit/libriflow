@@ -29,7 +29,7 @@ export default function Home() {
         <Categories />
       </div>
 
-      <div className="w-full px-20">
+      <div className="w-full">
         <Stats />
       </div>
 

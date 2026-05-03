@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Banner = () => {
     return (
@@ -21,10 +22,12 @@ const Banner = () => {
                     </p>
 
                     <div className="flex gap-4 mt-6">
-                        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow">
+                        <Link href="/books">
+                        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow cursor-pointer hover:bg-blue-700 transition">
                             Browse Now
                         </button>
-                        <button className="border px-6 py-3 rounded-lg">
+                        </Link>
+                        <button className="border px-6 py-3 rounded-lg cursor-pointer hover:bg-gray-100 transition">
                             Learn More
                         </button>
                     </div>

@@ -40,24 +40,25 @@ const Header = () => {
                             session?.user?.name || "Guest"
                         }</p>
                     </div>
-                    <Image
+                    <div className="w-10 h-10 relative rounded-full overflow-hidden">
+                        <Image
                         src={session?.user?.image || "/assets/user.jpg"}
                         alt="user"
-                        width={36}
-                        height={36}
-                        className="rounded-full object-cover"
+                        fill
+                        className="object-cover"
                     />
+                    </div>
                     {session?.user ? (
                         <button
                             onClick={handleSignOut}
-                            className="btn bg-blue-50 px-6 py-3 rounded-lg shadow"
+                            className="btn bg-blue-50 px-6 py-3 rounded-lg shadow hover:bg-blue-100 transition cursor-pointer"
                         >
                             Sign Out
                         </button>
                     ) : (
                         <Link
                             href="/signin"
-                            className="btn bg-blue-600 text-white px-6 py-3 rounded-lg shadow"
+                            className="btn bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition"
                         >
                             Sign In
                         </Link>

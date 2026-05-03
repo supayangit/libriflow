@@ -1,6 +1,5 @@
 "use client";
-
-import React from "react";
+import React, { useState } from "react";
 import Books from "@/lib/data/books.json";
 import BookCard from "@/app/components/book/BookCard";
 import BooksHeader from "@/app/components/book/BooksHeader";
@@ -10,12 +9,14 @@ const BooksByCategoryPage = () => {
   const params = useParams();
   const categoryParam = params?.category;
 
-  // normalize slug 
+  const [inputValue, setInputValue] = useState("");
+
+  // normalize slug
   const activeCategory = categoryParam
     ? categoryParam
-        .split("-")
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join("-")
+      .split("-")
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join("-")
     : "All";
 
   const categories = ["All", ...new Set(Books.map(b => b.category))];
@@ -30,7 +31,11 @@ const BooksByCategoryPage = () => {
   return (
     <div className="p-20 space-y-10">
 
-      <BooksHeader activeCategory={activeCategory} />
+      <BooksHeader
+        activeCategory={activeCategory}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+      />
 
       {!isValidCategory ? (
         <div className="text-center py-20">

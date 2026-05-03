@@ -25,7 +25,7 @@ const Navbar = () => {
           <Link
             key={item.href}
             href={item.href}
-            className={isActive ? "text-blue-600" : ""}
+            className={isActive ? "text-blue-600" : "hover:text-blue-400 transition"}
           >
             {item.label}
           </Link>
