@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { FaFacebook, FaInstagramSquare, FaTelegram } from "react-icons/fa";
 
 const Footer = () => {
@@ -18,15 +19,15 @@ const Footer = () => {
                     </p>
 
                     <div className="flex gap-3">
-                        <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+                        <Link href="#" className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
                             <FaFacebook className="w-6 h-6 text-blue-500" />
-                        </div>
-                        <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+                        </Link>
+                        <Link href="#" className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
                             <FaInstagramSquare className="w-6 h-6 text-purple-500" />
-                        </div>
-                        <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+                        </Link>
+                        <Link href="#" className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
                             <FaTelegram className="w-6 h-6 text-blue-500" />
-                        </div>
+                        </Link>
                     </div>
                 </div>
 
@@ -34,10 +35,18 @@ const Footer = () => {
                 <div className="text-right">
                     <h4 className="font-semibold mb-4">Quick Links</h4>
                     <ul className="space-y-2 text-sm text-gray-600">
-                        <li>Catalog</li>
-                        <li>Pricing</li>
-                        <li>About Us</li>
-                        <li>Contact</li>
+                        <li>
+                            <Link href="/catalog">Catalog</Link>
+                        </li>
+                        <li>
+                            <Link href="/pricing">Pricing</Link>
+                        </li>
+                        <li>
+                            <Link href="/about">About Us</Link>
+                        </li>
+                        <li>
+                            <Link href="/contact">Contact</Link>
+                        </li>
                     </ul>
                 </div>
 

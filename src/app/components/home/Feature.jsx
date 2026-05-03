@@ -27,13 +27,14 @@ const Feature = () => {
                         .map((book) => (
                             <div key={book.id} className="bg-white rounded-xl shadow-sm">
 
-                                <Image
+                                <div className='w-full h-100 relative rounded-t-xl overflow-hidden'>
+                                    <Image
                                     src={book.image_url}
-                                    width={300}
-                                    height={400}
+                                    fill
                                     alt={book.title}
-                                    className="rounded-t-lg mb-4"
+                                    className="object-cover"
                                 />
+                                </div>
 
                                 <div className="p-4 space-y-4">
                                     <p className="text-xs text-blue-400">{book.category.toUpperCase()}</p>

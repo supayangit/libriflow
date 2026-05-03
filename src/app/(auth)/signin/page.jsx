@@ -8,6 +8,7 @@ import { Check } from "@gravity-ui/icons";
 import { Button, Input, Label, InputGroup } from "@heroui/react";
 import { Eye, EyeSlash } from "@gravity-ui/icons";
 import { useState } from "react";
+import { FaGoogle } from "react-icons/fa";
 
 const SigninPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,6 +37,12 @@ const SigninPage = () => {
       console.error("Unexpected error:", err);
     }
   };
+
+  const handleGoogleSignIn = async ()=>{
+    const data = await authClient.signIn.social({
+    provider: "google",
+  });
+  }
 
   return (
     <div className="space-y-4 mx-auto flex flex-col justify-center items-center">
@@ -118,6 +125,13 @@ const SigninPage = () => {
           <Button type="reset" variant="secondary" className="text-blue-600">
             Reset
           </Button>
+        </div>
+
+        <div className="w-full mt-4">
+        <Button className="bg-white hover:bg-gray-50 text-black border border-gray-500 flex items-center justify-center gap-2 p-2 w-full" onClick={handleGoogleSignIn}>
+          <FaGoogle className="text-blue-500" />
+          Sign in with Google
+        </Button>
         </div>
       </form>
     </div>

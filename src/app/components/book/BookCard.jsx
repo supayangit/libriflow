@@ -6,7 +6,7 @@ const BookCard = ({ book }) => {
     return (
         <div key={book.id} className="bg-white rounded-xl shadow-sm">
 
-            <div className="w-full h-83 relative rounded-xl overflow-hidden">
+            <div className="w-full h-83 relative rounded-t-xl overflow-hidden">
                 <Image
                     src={book.image_url}
                     fill

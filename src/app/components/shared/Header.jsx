@@ -45,6 +45,7 @@ const Header = () => {
                         src={session?.user?.image || "/assets/user.jpg"}
                         alt="user"
                         fill
+                        sizes="40px"
                         className="object-cover"
                     />
                     </div>
