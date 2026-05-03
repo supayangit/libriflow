@@ -52,14 +52,14 @@ const Header = () => {
                     {session?.user ? (
                         <button
                             onClick={handleSignOut}
-                            className="btn bg-blue-50 px-6 py-3 rounded-lg shadow hover:bg-blue-100 transition cursor-pointer"
+                            className="btn bg-blue-50 px-4 py-2 rounded-lg shadow hover:bg-blue-100 transition cursor-pointer"
                         >
                             Sign Out
                         </button>
                     ) : (
                         <Link
                             href="/signin"
-                            className="btn bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition"
+                            className="btn bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition"
                         >
                             Sign In
                         </Link>

@@ -24,10 +24,10 @@ const BooksNavbar = ({activeCategory }) => {
         <button
           key={index}
           onClick={()=> handleClick(category)}
-          className={`px-4 py-2 text-sm rounded-full transition ${
+          className={`px-4 py-2 text-sm rounded-full transition cursor-pointer ${
             activeCategory === category
-              ? "bg-blue-500 text-white"
-              : "bg-gray-100 hover:bg-blue-100"
+              ? "bg-blue-600 text-white"
+              : "bg-gray-100 hover:bg-blue-300"
           }`}
         >
           {category}

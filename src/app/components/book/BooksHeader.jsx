@@ -26,25 +26,33 @@ const BooksHeader = ({ activeCategory, inputValue, setInputValue }) => {
             </div>
 
             <div className="flex items-center gap-2">
+
                 <SearchField
                     name="search"
-                    className="w-70"
                     value={inputValue}
                     onChange={setInputValue}
+                    className="w-70"
                 >
-                    <SearchField.Group>
-                        <SearchField.SearchIcon />
+                    <SearchField.Group className="flex items-center border border-gray-300 rounded-l-xl rounded-r-none overflow-hidden">
+                        <SearchField.SearchIcon className="ml-2 text-gray-500" />
+
                         <SearchField.Input
                             placeholder="Search by title or author name"
                             onKeyDown={handleKeyDown}
+                            className="px-2 py-2 outline-none border-none rounded-none"
                         />
-                        <SearchField.ClearButton />
+
+                        <SearchField.ClearButton className="mr-2" />
                     </SearchField.Group>
                 </SearchField>
 
-                <Button onClick={handleSearch}>
+                <Button
+                    onClick={handleSearch}
+                    className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-l-none rounded-r-xl border border-l-0 border-blue-500"
+                >
                     Search
                 </Button>
+
             </div>
 
             <BooksNavbar activeCategory={activeCategory} />

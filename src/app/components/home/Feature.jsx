@@ -15,7 +15,7 @@ const Feature = () => {
                             Handpicked selections by our expert curators.
                         </p>
                     </div>
-                    <Link href="/books" className="text-blue-600 hover:text-blue-800 transition">
+                    <Link href="/books" className="text-blue-500 hover:text-blue-700 transition">
                         View all
                     </Link>
                 </div>
@@ -29,11 +29,11 @@ const Feature = () => {
 
                                 <div className='w-full h-100 relative rounded-t-xl overflow-hidden'>
                                     <Image
-                                    src={book.image_url}
-                                    fill
-                                    alt={book.title}
-                                    className="object-cover"
-                                />
+                                        src={book.image_url}
+                                        fill
+                                        alt={book.title}
+                                        className="object-cover"
+                                    />
                                 </div>
 
                                 <div className="p-4 space-y-4">
@@ -47,9 +47,11 @@ const Feature = () => {
                                         {book.author} • {book.publication_year}
                                     </p>
 
-                                    <button className="w-full bg-gray-100 py-2 rounded-lg text-sm text-gray-700">
-                                        View Details
-                                    </button>
+                                    <Link href={`/books/${book.id}`}>
+                                        <button className="w-full bg-gray-100 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-200 transition cursor-pointer">
+                                            View Details
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         ))}
