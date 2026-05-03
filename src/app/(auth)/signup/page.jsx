@@ -15,6 +15,8 @@ import {
 import Link from "next/link";
 import { Eye, EyeSlash } from "@gravity-ui/icons";
 import { useState } from "react";
+import { FaGoogle } from "react-icons/fa";
+
 
 const SignupPage = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -45,6 +47,12 @@ const SignupPage = () => {
             window.location.href = "/signin";
         }
     };
+
+    const handleGoogleSignIn = async ()=>{
+        const data = await authClient.signIn.social({
+        provider: "google",
+      });
+      }
 
     return (
         <div className="space-y-4 mx-auto flex flex-col justify-center items-center">
@@ -170,6 +178,13 @@ const SignupPage = () => {
                     </Button>
                     <Button type="reset" variant="secondary" className="text-blue-600">
                         Reset
+                    </Button>
+                </div>
+
+                <div className="w-full mt-4">
+                    <Button className="bg-white hover:bg-gray-50 text-black border border-gray-500 flex items-center justify-center gap-2 p-2 w-full" onClick={handleGoogleSignIn}>
+                        <FaGoogle className="text-blue-500" />
+                        Continue with Google
                     </Button>
                 </div>
             </form>
