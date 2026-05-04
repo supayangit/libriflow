@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const Navbar = () => {
+const Navbar = ({ mobile }) => {
   const pathname = usePathname();
 
   const navItems = [
@@ -14,7 +14,13 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="hidden md:flex gap-8 text-sm font-medium text-gray-600">
+    <nav
+      className={
+        mobile
+          ? "flex flex-col gap-4 mt-4 text-sm font-medium text-gray-600"
+          : "flex gap-8 text-sm font-medium text-gray-600"
+      }
+    >
       {navItems.map((item) => {
         const isActive =
           item.href === "/"
