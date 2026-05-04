@@ -45,7 +45,6 @@ const ProfilePage = () => {
                 image: formData.image,
             });
 
-            // Update local UI instantly
             setSession((prev) => ({
                 ...prev,
                 user: {
@@ -82,17 +81,19 @@ const ProfilePage = () => {
     const user = session.user;
 
     return (
-        <div className="flex justify-center p-10">
-            <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-8 space-y-6">
+        <div className="flex justify-center px-4 sm:px-6 md:px-10 lg:px-20 py-10 sm:py-12 lg:py-16">
+
+            <div className="w-full max-w-2xl bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-4 sm:p-6 md:p-8 space-y-6">
 
                 {/* Header */}
-                <div className="flex items-center justify-between gap-6">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
 
-                    <div className="flex items-center gap-6">
+                    {/* Left */}
+                    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 text-center sm:text-left w-full">
 
                         {/* Avatar */}
                         <div className="p-[3px] rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500">
-                            <div className="relative w-30 h-30 rounded-full overflow-hidden bg-white">
+                            <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-30 lg:h-30 rounded-full overflow-hidden bg-white">
                                 <Image
                                     src={editing ? formData.image || "/default-avatar.png" : user.image || "/default-avatar.png"}
                                     alt="User"
@@ -102,8 +103,8 @@ const ProfilePage = () => {
                             </div>
                         </div>
 
-                        {/* Name and Email */}
-                        <div>
+                        {/* Name, Email */}
+                        <div className="w-full">
                             {editing ? (
                                 <input
                                     type="text"
@@ -111,29 +112,33 @@ const ProfilePage = () => {
                                     onChange={(e) =>
                                         setFormData({ ...formData, name: e.target.value })
                                     }
-                                    className="border px-3 py-2 rounded-md text-lg font-semibold w-full"
+                                    className="border px-3 py-2 rounded-md text-base sm:text-lg font-semibold w-full"
                                 />
                             ) : (
-                                <h1 className="text-2xl font-bold">{user.name || "No Name"}</h1>
+                                <h1 className="text-lg sm:text-xl md:text-2xl font-bold">
+                                    {user.name || "No Name"}
+                                </h1>
                             )}
 
-                            <p className="text-gray-500">{user.email}</p>
+                            <p className="text-gray-500 text-xs sm:text-sm md:text-base break-all">
+                                {user.email}
+                            </p>
                         </div>
                     </div>
 
-                    {/* Edit and Save */}
-                    <div>
+                    {/* Buttons */}
+                    <div className="flex justify-center sm:justify-end w-full sm:w-auto">
                         {editing ? (
-                            <div className="flex gap-2">
+                            <div className="flex gap-2 w-full sm:w-auto">
                                 <button
                                     onClick={handleUpdate}
-                                    className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+                                    className="flex-1 sm:flex-none bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 text-sm sm:text-base"
                                 >
                                     Save
                                 </button>
                                 <button
                                     onClick={() => setEditing(false)}
-                                    className="bg-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400"
+                                    className="flex-1 sm:flex-none bg-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400 text-sm sm:text-base"
                                 >
                                     Cancel
                                 </button>
@@ -141,7 +146,7 @@ const ProfilePage = () => {
                         ) : (
                             <button
                                 onClick={() => setEditing(true)}
-                                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer"
+                                className="w-full sm:w-auto bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm sm:text-base"
                             >
                                 Edit
                             </button>
@@ -149,17 +154,19 @@ const ProfilePage = () => {
                     </div>
                 </div>
 
-                {/* Image URL Field in edit mode */}
+                {/* Image URL */}
                 {editing && (
                     <div>
-                        <label className="text-sm text-gray-500">Profile Image URL</label>
+                        <label className="text-xs sm:text-sm text-gray-500">
+                            Profile Image URL
+                        </label>
                         <input
                             type="text"
                             value={formData.image}
                             onChange={(e) =>
                                 setFormData({ ...formData, image: e.target.value })
                             }
-                            className="w-full mt-2 border px-3 py-2 rounded-md"
+                            className="w-full mt-2 border px-3 py-2 rounded-md text-sm"
                             placeholder="https://example.com/image.jpg"
                         />
                     </div>
@@ -168,17 +175,21 @@ const ProfilePage = () => {
                 {/* Divider */}
                 <div className="border-t"></div>
 
-                {/* Info Section */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+                {/* Info */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 text-sm">
 
-                    <div className="bg-gray-100 p-4 rounded-lg">
-                        <p className="text-gray-500">User ID</p>
-                        <p className="font-semibold break-all">{user.id}</p>
+                    <div className="bg-gray-100 p-3 sm:p-4 rounded-lg">
+                        <p className="text-gray-500 text-xs sm:text-sm">User ID</p>
+                        <p className="font-semibold break-all text-xs sm:text-sm">
+                            {user.id}
+                        </p>
                     </div>
 
-                    <div className="bg-gray-100 p-4 rounded-lg">
-                        <p className="text-gray-500">Email</p>
-                        <p className="font-semibold">{user.email}</p>
+                    <div className="bg-gray-100 p-3 sm:p-4 rounded-lg">
+                        <p className="text-gray-500 text-xs sm:text-sm">Email</p>
+                        <p className="font-semibold text-xs sm:text-sm break-all">
+                            {user.email}
+                        </p>
                     </div>
 
                 </div>

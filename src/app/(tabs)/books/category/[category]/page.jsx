@@ -11,12 +11,11 @@ const BooksByCategoryPage = () => {
 
   const [inputValue, setInputValue] = useState("");
 
-  // normalize slug
   const activeCategory = categoryParam
     ? categoryParam
-      .split("-")
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join("-")
+        .split("-")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join("-")
     : "All";
 
   const categories = ["All", ...new Set(Books.map(b => b.category))];
@@ -29,7 +28,7 @@ const BooksByCategoryPage = () => {
       : Books.filter((book) => book.category === activeCategory);
 
   return (
-    <div className="p-20 space-y-10">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10 lg:px-20 py-10 sm:py-12 lg:py-16 space-y-8 sm:space-y-10">
 
       <BooksHeader
         activeCategory={activeCategory}
@@ -38,16 +37,16 @@ const BooksByCategoryPage = () => {
       />
 
       {!isValidCategory ? (
-        <div className="text-center py-20">
-          <h2 className="text-2xl font-semibold text-purple-500">
+        <div className="text-center py-16 sm:py-20">
+          <h2 className="text-xl sm:text-2xl font-semibold text-purple-500">
             Category not found
           </h2>
-          <p className="text-gray-500 mt-2">
+          <p className="text-gray-500 mt-2 text-sm sm:text-base">
             Try selecting a valid category.
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-5">
           {filteredBooks.map((book) => (
             <BookCard key={book.id} book={book} />
           ))}

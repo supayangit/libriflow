@@ -34,106 +34,120 @@ const SigninPage = () => {
 
       router.push("/");
     } catch (err) {
-      console.error("Unexpected error:", err);
+      console.error(err);
     }
   };
 
-  const handleGoogleSignIn = async ()=>{
-    const data = await authClient.signIn.social({
-    provider: "google",
-  });
-  }
+  const handleGoogleSignIn = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+    });
+  };
 
   return (
-    <div className="space-y-4 mx-auto flex flex-col justify-center items-center">
-      <h2 className="font-bold text-2xl">Sign In to LibriFlow</h2>
+    <div className="flex items-center justify-center px-4 sm:px-6 md:px-10 lg:px-20">
 
-      <div>
-        <span className="text-sm text-muted-foreground">
-          No account?
-        </span>{" "}
-        <Link href="/signup">Sign Up</Link>
-      </div>
+      <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-md space-y-2 sm:space-y-4 md:space-y-6 text-center">
 
-      <form
-        className="flex w-96 flex-col gap-4"
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        {/* Email */}
-        <div className="flex flex-col gap-1">
-          <Label>Email</Label>
-          <Input
-            placeholder="john@example.com"
-            {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value:
-                  /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "Invalid email",
-              },
-            })}
-          />
-          {errors.email && (
-            <p className="text-red-500 text-sm">
-              {errors.email.message}
-            </p>
-          )}
+        <h2 className="font-bold text-xl sm:text-2xl md:text-3xl">
+          Sign In to LibriFlow
+        </h2>
+
+        <div className="text-sm">
+          <span className="text-muted-foreground">No account?</span>{" "}
+          <Link href="/signup" className="text-blue-600 hover:underline">
+            Sign Up
+          </Link>
         </div>
 
-        {/* Password */}
-        <div className="flex flex-col gap-1">
-          <Label>Password</Label>
+        <form
+          className="flex flex-col gap-4 w-full"
+          onSubmit={handleSubmit(onSubmit)}
+        >
 
-          <InputGroup>
-            <InputGroup.Input
-              type={isVisible ? "text" : "password"}
-              placeholder="Enter your password"
-              {...register("password", {
-                required: "Password is required",
+          {/* Email */}
+          <div className="flex flex-col gap-1 text-left">
+            <Label>Email</Label>
+            <Input
+              placeholder="john@example.com"
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Invalid email",
+                },
               })}
             />
-            <InputGroup.Suffix>
-              <Button
-                isIconOnly
-                size="sm"
-                variant="ghost"
-                onPress={() => setIsVisible(!isVisible)}
-              >
-                {isVisible ? (
-                  <Eye className="size-4" />
-                ) : (
-                  <EyeSlash className="size-4" />
-                )}
-              </Button>
-            </InputGroup.Suffix>
-          </InputGroup>
+            {errors.email && (
+              <p className="text-red-500 text-xs sm:text-sm">
+                {errors.email.message}
+              </p>
+            )}
+          </div>
 
-          {errors.password && (
-            <p className="text-red-500 text-sm">
-              {errors.password.message}
-            </p>
-          )}
-        </div>
+          {/* Password */}
+          <div className="flex flex-col gap-1 text-left">
+            <Label>Password</Label>
 
-        {/* Buttons */}
-        <div className="flex gap-2">
-          <Button type="submit" className="bg-blue-600">
-            <Check />
-            Sign In
+            <InputGroup>
+              <InputGroup.Input
+                type={isVisible ? "text" : "password"}
+                placeholder="Enter your password"
+                {...register("password", {
+                  required: "Password is required",
+                })}
+              />
+
+              <InputGroup.Suffix>
+                <Button
+                  isIconOnly
+                  size="sm"
+                  variant="ghost"
+                  onPress={() => setIsVisible(!isVisible)}
+                >
+                  {isVisible ? (
+                    <Eye className="size-4" />
+                  ) : (
+                    <EyeSlash className="size-4" />
+                  )}
+                </Button>
+              </InputGroup.Suffix>
+            </InputGroup>
+
+            {errors.password && (
+              <p className="text-red-500 text-xs sm:text-sm">
+                {errors.password.message}
+              </p>
+            )}
+          </div>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-2">
+            <Button type="submit" className="bg-blue-600 w-full sm:w-auto">
+              <Check />
+              Sign In
+            </Button>
+
+            <Button
+              type="reset"
+              variant="secondary"
+              className="text-blue-600 w-full sm:w-auto"
+            >
+              Reset
+            </Button>
+          </div>
+
+          {/* Google */}
+          <Button
+            className="bg-white hover:bg-gray-50 text-black border border-gray-300 flex items-center justify-center gap-2 w-full py-2"
+            onClick={handleGoogleSignIn}
+          >
+            <FaGoogle className="text-blue-500" />
+            Sign in with Google
           </Button>
 
-          <Button type="reset" variant="secondary" className="text-blue-600">
-            Reset
-          </Button>
-        </div>
-
-        <div className="w-full mt-4">
-        <Button className="bg-white hover:bg-gray-50 text-black border border-gray-500 flex items-center justify-center gap-2 p-2 w-full" onClick={handleGoogleSignIn}>
-          <FaGoogle className="text-blue-500" />
-          Sign in with Google
-        </Button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 };
