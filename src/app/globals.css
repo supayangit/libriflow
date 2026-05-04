@@ -32,7 +32,29 @@ body {
   margin-top: 16px;
 }
 
-/* spacing between dots */
+/* default (desktop) spacing */
 .mySwiper .swiper-pagination-bullet {
   margin: 0 6px !important;
+}
+
+/* tablet */
+@media (max-width: 768px) {
+  .mySwiper .swiper-pagination {
+    margin-top: 12px;
+  }
+
+  .mySwiper .swiper-pagination-bullet {
+    margin: 0 4px !important;
+  }
+}
+
+/* mobile */
+@media (max-width: 480px) {
+  .mySwiper .swiper-pagination {
+    margin-top: 6px;
+  }
+
+  .mySwiper .swiper-pagination-bullet {
+    margin: 0 3px !important;
+  }
 }

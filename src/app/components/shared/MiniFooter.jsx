@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const MiniFooter = () => {
     return (
-        <footer className="border-t border-gray-200 bg-gray-50 py-6 sm:py-8">
+        <footer className="border-t border-gray-200 bg-gray-50 py-10 sm:py-14">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10 lg:px-20 flex flex-col md:flex-row items-center justify-between gap-6">
 
                 {/* Left*/}
@@ -23,7 +23,7 @@ const MiniFooter = () => {
                 </div>
 
                 {/* Center*/}
-                <div className="text-center text-xs text-gray-500 mt-10 px-4">
+                <div className="text-center text-xs text-gray-500 mt-2.5 sm:mt-6 md:mt-10 px-4">
                     © 2024 LibriFlow Digital Library. By Supayan C. All rights reserved.
                 </div>
 

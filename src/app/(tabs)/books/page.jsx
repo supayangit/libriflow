@@ -1,18 +1,31 @@
 "use client";
-
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import Books from "@/lib/data/books.json";
 import BookCard from "@/app/components/book/BookCard";
 import BooksHeader from "@/app/components/book/BooksHeader";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/grid";
-
 import { Grid } from "swiper/modules";
 
-const BooksPage = () => {
+export default function BooksPageWrapper() {
+    return (
+        <Suspense fallback={<div className="text-center py-10">Loading books...</div>}>
+            <BooksPage />
+        </Suspense>
+    );
+}
+
+function BooksPage() {
+
+    const [Books, setBooks] = useState([]);
+
+    useEffect(() => {
+        fetch("/api/books")
+            .then(res => res.json())
+            .then(data => setBooks(data));
+    }, []);
+
     const searchParams = useSearchParams();
 
     const [inputValue, setInputValue] = useState("");
@@ -36,10 +49,10 @@ const BooksPage = () => {
                 book.author.toLowerCase().includes(query)
             )
             .sort((a, b) => a.title.localeCompare(b.title));
-    }, [searchQuery]);
 
-    // pagination logic
-    const slidesPerPage = 5; // 1 rows × 5 cols= 5 items
+    }, [searchQuery, Books]);
+
+    const slidesPerPage = 5;
     const totalPages = Math.ceil(filteredBooks.length / slidesPerPage);
 
     const goToPage = (index) => {
@@ -85,12 +98,12 @@ const BooksPage = () => {
                         key={index}
                         onClick={() => goToPage(index)}
                         className={`
-                            w-10 h-10 rounded-md text-sm font-semibold transition
-                            ${currentPage === index
+              w-10 h-10 rounded-md text-sm font-semibold transition
+              ${currentPage === index
                                 ? "bg-blue-600 text-white shadow-md"
                                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                             }
-                        `}
+            `}
                     >
                         {index + 1}
                     </button>
@@ -99,6 +112,4 @@ const BooksPage = () => {
 
         </div>
     );
-};
-
-export default BooksPage;
+}

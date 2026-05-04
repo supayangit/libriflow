@@ -1,15 +1,24 @@
 "use client"
 import React from 'react';
 import Image from 'next/image';
-import Books from '@/lib/data/books.json';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
+import { useEffect, useState } from "react";
 
 const Feature = () => {
+
+    const [Books, setBooks] = useState([]);
+    
+        useEffect(() => {
+            fetch("/api/books")
+                .then(res => res.json())
+                .then(data => setBooks(data));
+        }, []);
+
     return (
         <section className="sm:py-12 lg:py-16">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10 lg:px-20">
@@ -27,7 +36,7 @@ const Feature = () => {
 
                     <Link
                         href="/books"
-                        className="text-blue-500 hover:text-blue-700 hover:underline transition text-sm sm:text-base"
+                        className="text-blue-600 hover:underline transition text-sm sm:text-base"
                     >
                         View all
                     </Link>

@@ -24,7 +24,7 @@ const Footer = () => {
                         <span className="font-semibold text-lg">LibriFlow</span>
                     </div>
 
-                    <p className="text-sm text-gray-600 mb-4">
+                    <p className="text-sm text-gray-600 mb-2 sm:mb-4">
                         The ultimate digital library for students, professionals, and book enthusiasts.
                     </p>
 
@@ -43,8 +43,8 @@ const Footer = () => {
 
                 {/* Links */}
                 <div>
-                    <h4 className="font-semibold mb-4">Quick Links</h4>
-                    <ul className="space-y-2 text-sm text-gray-600">
+                    <h4 className="font-semibold mb-2 sm:mb-4">Quick Links</h4>
+                    <ul className="space-y-1.5 sm:space-y-2 text-sm text-gray-600">
                         <li><Link href="/catalog" className="hover:text-black transition">Catalog</Link></li>
                         <li><Link href="/pricing" className="hover:text-black transition">Pricing</Link></li>
                         <li><Link href="/about" className="hover:text-black transition">About Us</Link></li>
@@ -54,7 +54,7 @@ const Footer = () => {
 
                 {/* Contact */}
                 <div>
-                    <h4 className="font-semibold mb-4">Contact</h4>
+                    <h4 className="font-semibold mb-2 sm:mb-4">Contact</h4>
                     <p className="text-sm text-gray-600">hello@libriflow.com</p>
                     <p className="text-sm text-gray-600">+1 (555) 000-0000</p>
                     <p className="text-sm text-gray-600">San Francisco, CA</p>
@@ -62,7 +62,7 @@ const Footer = () => {
 
             </div>
 
-            <div className="text-center text-xs text-gray-500 mt-10 px-4">
+            <div className="text-center text-xs text-gray-500 mt-5 sm:mt-8 md:mt-10 px-4">
                 © 2024 LibriFlow Digital Library. By Supayan C. All rights reserved.
             </div>
 

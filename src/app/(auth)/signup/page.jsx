@@ -49,9 +49,9 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="flex items-center justify-center px-4 sm:px-6 md:px-10 lg:px-20">
+    <div className="py-10 sm:py-12 md:py-15 flex items-center justify-center px-4 sm:px-6 md:px-10 lg:px-20">
 
-      <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-md space-y-2 sm:space-y-4 md:space-y-6 text-center">
+      <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-md space-y-4 md:space-y-6 text-center">
 
         <h2 className="font-bold text-xl sm:text-2xl md:text-3xl">
           Sign Up for LibriFlow
@@ -174,7 +174,7 @@ const SignupPage = () => {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-2">
-            <Button type="submit" className="bg-blue-600 w-full sm:w-auto">
+            <Button type="submit" className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto">
               <Check />
               Sign Up
             </Button>

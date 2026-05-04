@@ -1,5 +1,5 @@
+"use client";
 import React from "react";
-import Books from "@/lib/data/books.json";
 import Link from 'next/link';
 import {
     FaBookOpen,
@@ -31,7 +31,17 @@ const iconMap = {
     Life: FaBook
 };
 
+import { useEffect, useState } from "react";
+
 const Categories = () => {
+
+    const [Books, setBooks] = useState([]);
+
+    useEffect(() => {
+        fetch("/api/books")
+            .then(res => res.json())
+            .then(data => setBooks(data));
+    }, []);
 
     const uniqueCategories = [...new Set(Books.map(book => book.category))];
 
@@ -49,12 +59,12 @@ const Categories = () => {
 
                         return (
                             <Link key={cat} href={`/books/category/${cat.toLowerCase()}`}>
-                            <div
-                                className="bg-white p-6 rounded-xl shadow-sm flex flex-col items-center hover:shadow-md transition"
-                            >
-                                <Icon className="text-2xl text-blue-500 mb-3" />
-                                <p className="text-sm font-medium">{cat}</p>
-                            </div>
+                                <div
+                                    className="bg-white p-6 rounded-xl shadow-sm flex flex-col items-center hover:shadow-md transition"
+                                >
+                                    <Icon className="text-2xl text-blue-500 mb-3" />
+                                    <p className="text-sm font-medium">{cat}</p>
+                                </div>
                             </Link>
                         );
                     })}
