@@ -10,7 +10,7 @@ async function getDatabase() {
   if (db) return db;
 
   if (!process.env.MONGODB_URI) {
-    throw new Error("❌ MONGODB_URI is not defined in environment variables");
+    throw new Error("MONGODB_URI is not defined in environment variables");
   }
 
   client = new MongoClient(process.env.MONGODB_URI);
@@ -18,7 +18,7 @@ async function getDatabase() {
   await client.connect();
   db = client.db("libriflow-nextjs");
 
-  console.log("✅ MongoDB connected");
+  console.log("MongoDB connected");
 
   return db;
 }
