@@ -1,34 +1,76 @@
 "use client";
-import React, { useState } from "react";
+
+import React, { useState, useMemo, useEffect } from "react";
+import { useParams, useSearchParams } from "next/navigation";
 import Books from "@/lib/data/books.json";
 import BookCard from "@/app/components/book/BookCard";
 import BooksHeader from "@/app/components/book/BooksHeader";
-import { useParams } from "next/navigation";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/grid";
+
+import { Grid } from "swiper/modules";
 
 const BooksByCategoryPage = () => {
   const params = useParams();
+  const searchParams = useSearchParams();
+
   const categoryParam = params?.category;
 
   const [inputValue, setInputValue] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
+  const [swiper, setSwiper] = useState(null);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  // sync search param 
+  useEffect(() => {
+    const query = searchParams.get("search") || "";
+    setSearchQuery(query);
+    setInputValue(query);
+  }, [searchParams]);
+
+  // format category
   const activeCategory = categoryParam
     ? categoryParam
         .split("-")
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join("-")
     : "All";
 
-  const categories = ["All", ...new Set(Books.map(b => b.category))];
-
+  const categories = ["All", ...new Set(Books.map((b) => b.category))];
   const isValidCategory = categories.includes(activeCategory);
 
-  const filteredBooks =
-    activeCategory === "All"
-      ? Books
-      : Books.filter((book) => book.category === activeCategory);
+  // filtered + search + category + sort 
+  const filteredBooks = useMemo(() => {
+    const query = searchQuery.toLowerCase();
+
+    let result =
+      activeCategory === "All"
+        ? Books
+        : Books.filter((book) => book.category === activeCategory);
+
+    result = result.filter(
+      (book) =>
+        book.title.toLowerCase().includes(query) ||
+        book.author.toLowerCase().includes(query)
+    );
+
+    return result.sort((a, b) => a.title.localeCompare(b.title));
+  }, [activeCategory, searchQuery]);
+
+  // pagination logic
+  const slidesPerPage = 5; // 1 row × 5 cols = 5 items
+  const totalPages = Math.ceil(filteredBooks.length / slidesPerPage);
+
+  const goToPage = (index) => {
+    setCurrentPage(index);
+    swiper?.slideTo(index * slidesPerPage);
+  };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10 lg:px-20 py-10 sm:py-12 lg:py-16 space-y-8 sm:space-y-10">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10 lg:px-20 py-6 sm:py-8 lg:py-12 space-y-3 sm:space-y-5">
 
       <BooksHeader
         activeCategory={activeCategory}
@@ -46,13 +88,50 @@ const BooksByCategoryPage = () => {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-5">
-          {filteredBooks.map((book) => (
-            <BookCard key={book.id} book={book} />
-          ))}
-        </div>
-      )}
+        <>
+          {/* swiper */}
+          <Swiper
+            onSwiper={setSwiper}
+            modules={[Grid]}
+            spaceBetween={16}
+            grid={{
+              rows: 1,
+              fill: "row",
+            }}
+            breakpoints={{
+              0: { slidesPerView: 2 },
+              640: { slidesPerView: 3 },
+              1024: { slidesPerView: 5 },
+            }}
+          >
+            {filteredBooks.map((book) => (
+              <SwiperSlide key={book.id}>
+                <BookCard book={book} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
+          {/* pagination */}
+          <div className="flex justify-center gap-2 flex-wrap">
+            {Array.from({ length: totalPages }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToPage(index)}
+                className={`
+                  w-10 h-10 rounded-md text-sm font-semibold transition
+                  ${
+                    currentPage === index
+                      ? "bg-blue-600 text-white shadow-md"
+                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  }
+                `}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };

@@ -1,7 +1,13 @@
+"use client"
 import React from 'react';
 import Image from 'next/image';
 import Books from '@/lib/data/books.json';
 import Link from 'next/link';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination } from "swiper/modules";
 
 const Feature = () => {
     return (
@@ -21,19 +27,32 @@ const Feature = () => {
 
                     <Link
                         href="/books"
-                        className="text-blue-500 hover:text-blue-700 transition text-sm sm:text-base"
+                        className="text-blue-500 hover:text-blue-700 hover:underline transition text-sm sm:text-base"
                     >
                         View all
                     </Link>
                 </div>
 
-                {/* Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* swiper */}
+                <Swiper
+                    modules={[Navigation, Pagination]}
+                    spaceBetween={16}
+                    navigation
+                    pagination={{ clickable: true }}
+                    grabCursor={true}
+                    className="mySwiper pb-12"
+                    breakpoints={{
+                        0: { slidesPerView: 2 },
+                        640: { slidesPerView: 2 },
+                        768: { slidesPerView: 3 },
+                        1024: { slidesPerView: 4 },
+                    }}
+                >
                     {[...Books]
                         .sort((a, b) => b.total_reads - a.total_reads)
-                        .slice(0, 4)
+                        .slice(0, 8)
                         .map((book) => (
-                            <div key={book.id} className="bg-white rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition">
+                            <SwiperSlide key={book.id} className="bg-white rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition pb-4">
 
                                 {/* Image */}
                                 <div className="w-full h-40 sm:h-72 md:h-80 lg:h-72 relative rounded-t-lg sm:rounded-t-xl overflow-hidden">
@@ -61,17 +80,17 @@ const Feature = () => {
                                     </p>
 
                                     <Link href={`/books/${book.id}`}>
-                                        <button className="w-full bg-gray-100 py-2 rounded-lg text-[11px] sm:text-sm text-gray-700 hover:bg-gray-200 transition">
+                                        <button className="w-full bg-gray-100 py-2 rounded-lg text-[11px] sm:text-sm text-gray-700 hover:bg-gray-200 transition cursor-pointer">
                                             View Details
                                         </button>
                                     </Link>
                                 </div>
-                            </div>
+                            </SwiperSlide>
                         ))}
-                </div>
+                </Swiper>
 
             </div>
-        </section>
+        </section >
     );
 };
 

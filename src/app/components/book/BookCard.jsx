@@ -32,7 +32,7 @@ const BookCard = ({ book }) => {
                 </p>
 
                 <Link href={`/books/${book.id}`}>
-                    <button className="w-full bg-gray-100 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-sm text-gray-700 hover:bg-gray-200 transition">
+                    <button className="w-full bg-gray-100 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-sm text-gray-700 hover:bg-gray-200 cursor-pointer transition">
                         View Details
                     </button>
                 </Link>

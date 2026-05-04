@@ -1,17 +1,26 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { FaFacebook, FaInstagramSquare, FaTelegram } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-100 py-10 sm:py-12 border-t border-gray-200">
-            
-            <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 lg:px-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-center sm:text-left">
+        <footer className="bg-gray-100 py-6 sm:py-10 md:py-12 border-t border-gray-200">
+
+            <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 lg:px-20 grid grid-cols-1 sm:flex sm:justify-between gap-5 sm:gap-10 text-center sm:text-left">
 
                 {/* Brand */}
                 <div>
                     <div className="flex items-center justify-center sm:justify-start gap-2 mb-4">
-                        <div className="w-8 h-8 bg-blue-600 rounded-md"></div>
+                        <div className="w-8 h-8 bg-blue-600 rounded-md relative overflow-hidden">
+                            <Image
+                                src="/assets/icon.png"
+                                alt="icon"
+                                fill
+                                sizes="32px"
+                                className="object-cover"
+                            />
+                        </div>
                         <span className="font-semibold text-lg">LibriFlow</span>
                     </div>
 
@@ -36,10 +45,10 @@ const Footer = () => {
                 <div>
                     <h4 className="font-semibold mb-4">Quick Links</h4>
                     <ul className="space-y-2 text-sm text-gray-600">
-                        <li><Link href="/catalog">Catalog</Link></li>
-                        <li><Link href="/pricing">Pricing</Link></li>
-                        <li><Link href="/about">About Us</Link></li>
-                        <li><Link href="/contact">Contact</Link></li>
+                        <li><Link href="/catalog" className="hover:text-black transition">Catalog</Link></li>
+                        <li><Link href="/pricing" className="hover:text-black transition">Pricing</Link></li>
+                        <li><Link href="/about" className="hover:text-black transition">About Us</Link></li>
+                        <li><Link href="/contact" className="hover:text-black transition">Contact</Link></li>
                     </ul>
                 </div>
 
@@ -54,7 +63,7 @@ const Footer = () => {
             </div>
 
             <div className="text-center text-xs text-gray-500 mt-10 px-4">
-                © 2024 LibriFlow Digital Library. All rights reserved.
+                © 2024 LibriFlow Digital Library. By Supayan C. All rights reserved.
             </div>
 
         </footer>

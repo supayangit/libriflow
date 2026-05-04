@@ -17,7 +17,7 @@ const BooksHeader = ({ activeCategory, inputValue, setInputValue }) => {
     };
 
     return (
-        <div className="w-full space-y-6 sm:space-y-8 lg:space-y-10 border-b border-gray-200 pb-6 sm:pb-8 lg:pb-10">
+        <div className="w-full space-y-4 sm:space-y-6 lg:space-y-8 border-b border-gray-200 pb-2 sm:pb-4 lg:pb-6">
 
             {/* Title */}
             <div>
