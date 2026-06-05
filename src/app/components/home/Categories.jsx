@@ -49,7 +49,7 @@ const Categories = () => {
         <section>
             <div className="mx-auto text-center">
 
-                <h2 className="text-2xl font-semibold mb-8">
+                <h2 className="text-2xl font-semibold mb-8 text-slate-950 dark:text-white">
                     Popular Categories
                 </h2>
 
@@ -60,10 +60,10 @@ const Categories = () => {
                         return (
                             <Link key={cat} href={`/books/category/${cat.toLowerCase()}`}>
                                 <div
-                                    className="bg-white p-6 rounded-xl shadow-sm flex flex-col items-center hover:shadow-md transition"
+                                    className="bg-white/90 border border-slate-200 p-6 rounded-xl shadow-sm flex flex-col items-center hover:shadow-md transition dark:bg-slate-900/80 dark:border-slate-800"
                                 >
-                                    <Icon className="text-2xl text-blue-500 mb-3" />
-                                    <p className="text-sm font-medium">{cat}</p>
+                                    <Icon className="text-2xl text-blue-500 mb-3 dark:text-blue-300" />
+                                    <p className="text-sm font-medium text-slate-950 dark:text-slate-100">{cat}</p>
                                 </div>
                             </Link>
                         );

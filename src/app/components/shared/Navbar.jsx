@@ -17,8 +17,8 @@ const Navbar = ({ mobile }) => {
     <nav
       className={
         mobile
-          ? "flex flex-col gap-4 mt-4 text-sm font-medium text-gray-600"
-          : "flex gap-8 text-sm font-medium text-gray-600"
+          ? "flex flex-col gap-4 mt-4 text-sm font-medium text-slate-700 dark:text-slate-300"
+          : "flex gap-8 text-sm font-medium text-slate-700 dark:text-slate-300"
       }
     >
       {navItems.map((item) => {
@@ -31,7 +31,7 @@ const Navbar = ({ mobile }) => {
           <Link
             key={item.href}
             href={item.href}
-            className={isActive ? "text-blue-600" : "hover:text-blue-400 transition"}
+            className={isActive ? "text-blue-600 dark:text-blue-300" : "hover:text-blue-500 dark:hover:text-blue-300 transition"}
           >
             {item.label}
           </Link>

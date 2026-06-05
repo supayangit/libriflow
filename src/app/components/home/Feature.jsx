@@ -26,10 +26,10 @@ const Feature = () => {
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
                     <div>
-                        <h2 className="text-xl sm:text-2xl font-semibold text-black">
+                        <h2 className="text-xl sm:text-2xl font-semibold text-slate-950 dark:text-white">
                             Featured Books
                         </h2>
-                        <p className="text-gray-500 text-sm">
+                        <p className="text-slate-500 dark:text-slate-400 text-sm">
                             Handpicked selections by our expert curators.
                         </p>
                     </div>
@@ -61,7 +61,7 @@ const Feature = () => {
                         .sort((a, b) => b.total_reads - a.total_reads)
                         .slice(0, 8)
                         .map((book) => (
-                            <SwiperSlide key={book.id} className="bg-white rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition pb-4">
+                            <SwiperSlide key={book.id} className="bg-white/90 border border-slate-200 rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition pb-4 dark:bg-slate-900/80 dark:border-slate-800">
 
                                 {/* Image */}
                                 <div className="w-full h-40 sm:h-72 md:h-80 lg:h-72 relative rounded-t-lg sm:rounded-t-xl overflow-hidden">
@@ -76,20 +76,20 @@ const Feature = () => {
 
                                 {/* Content */}
                                 <div className="p-2 sm:p-3 md:p-4 space-y-2 sm:space-y-3">
-                                    <p className="text-[12px] sm:text-xs text-blue-400">
+                                    <p className="text-[12px] sm:text-xs text-blue-400 dark:text-blue-300">
                                         {book.category.toUpperCase()}
                                     </p>
 
-                                    <h3 className="font-semibold text-black text-sm sm:text-base line-clamp-2">
+                                    <h3 className="font-semibold text-slate-950 dark:text-white text-sm sm:text-base line-clamp-2">
                                         {book.title}
                                     </h3>
 
-                                    <p className="text-xs text-gray-500">
+                                    <p className="text-xs text-slate-500 dark:text-slate-400">
                                         {book.author} • {book.publication_year}
                                     </p>
 
                                     <Link href={`/books/${book.id}`}>
-                                        <button className="w-full bg-gray-100 py-2 rounded-lg text-[11px] sm:text-sm text-gray-700 hover:bg-gray-200 transition cursor-pointer">
+                                        <button className="w-full bg-gray-100 py-2 rounded-lg text-[11px] sm:text-sm text-gray-700 hover:bg-gray-200 transition cursor-pointer dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700">
                                             View Details
                                         </button>
                                     </Link>

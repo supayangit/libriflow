@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const BookCard = ({ book }) => {
     return (
-        <div className="bg-white rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition">
+        <div className="bg-white/90 border border-slate-200 rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition duration-300 backdrop-blur-xl dark:bg-slate-900/80 dark:border-slate-800">
 
             {/* Image */}
             <div className="w-full h-40 sm:h-56 md:h-64 lg:h-72 relative rounded-t-lg sm:rounded-t-xl overflow-hidden">
@@ -19,20 +19,20 @@ const BookCard = ({ book }) => {
 
             {/* Content */}
             <div className="p-2 sm:p-3 md:p-4 space-y-2 sm:space-y-3">
-                <p className="text-[10px] sm:text-xs text-blue-400">
+                <p className="text-[10px] sm:text-xs text-blue-500">
                     {book.category}
                 </p>
 
-                <h3 className="font-semibold text-[12px] sm:text-sm md:text-base text-black line-clamp-2">
+                <h3 className="font-semibold text-[12px] sm:text-sm md:text-base text-slate-900 dark:text-slate-100 line-clamp-2">
                     {book.title}
                 </h3>
 
-                <p className="text-[10px] sm:text-xs text-gray-500">
+                <p className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">
                     {book.author}
                 </p>
 
                 <Link href={`/books/${book.id}`}>
-                    <button className="w-full bg-gray-100 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-sm text-gray-700 hover:bg-gray-200 cursor-pointer transition">
+                    <button className="w-full bg-slate-100 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-sm text-slate-800 hover:bg-slate-200 cursor-pointer transition dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700">
                         View Details
                     </button>
                 </Link>

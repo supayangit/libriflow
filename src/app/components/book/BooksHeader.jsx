@@ -17,14 +17,14 @@ const BooksHeader = ({ activeCategory, inputValue, setInputValue }) => {
     };
 
     return (
-        <div className="w-full space-y-4 sm:space-y-6 lg:space-y-8 border-b border-gray-200 pb-2 sm:pb-4 lg:pb-6">
+        <div className="w-full space-y-4 sm:space-y-6 lg:space-y-8 border-b border-slate-200 pb-2 sm:pb-4 lg:pb-6 dark:border-slate-800">
 
             {/* Title */}
             <div>
-                <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl">
+                <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl text-slate-950 dark:text-white">
                     Explore Library
                 </h1>
-                <p className="text-sm sm:text-base text-gray-600">
+                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
                     Browse through our collection of over 12,000 digital books!
                 </p>
             </div>
@@ -38,16 +38,16 @@ const BooksHeader = ({ activeCategory, inputValue, setInputValue }) => {
                     onChange={setInputValue}
                     className="w-full sm:w-72 md:w-96"
                 >
-                    <SearchField.Group className="flex items-center border border-gray-300 rounded-xl sm:rounded-l-xl sm:rounded-r-none overflow-hidden">
-                        <SearchField.SearchIcon className="ml-2 text-gray-500" />
+                    <SearchField.Group className="flex items-center border border-slate-300 rounded-xl sm:rounded-l-xl sm:rounded-r-none overflow-hidden bg-white dark:border-slate-700 dark:bg-slate-950/80">
+                        <SearchField.SearchIcon className="ml-2 text-slate-500 dark:text-slate-400" />
 
                         <SearchField.Input
                             placeholder="Search by title or author name"
                             onKeyDown={handleKeyDown}
-                            className="px-2 py-2 outline-none border-none rounded-none text-sm sm:text-base"
+                            className="px-2 py-2 outline-none border-none rounded-none text-sm sm:text-base text-slate-900 dark:text-slate-100 bg-transparent"
                         />
 
-                        <SearchField.ClearButton className="mr-2" />
+                        <SearchField.ClearButton className="mr-2 text-slate-500 dark:text-slate-300" />
                     </SearchField.Group>
                 </SearchField>
 

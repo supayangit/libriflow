@@ -37,7 +37,7 @@ const BooksNavbar = ({ activeCategory }) => {
                         ${
                             activeCategory === category
                                 ? "bg-blue-600 text-white"
-                                : "bg-gray-100 hover:bg-blue-300"
+                                : "bg-slate-100 text-slate-900 hover:bg-blue-300 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-blue-500/20"
                         }
                     `}
                 >

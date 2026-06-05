@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "./Navbar";
+import ThemeToggle from "./ThemeToggle";
 import { authClient } from "@/lib/auth-client";
 import { FaBars, FaTimes } from "react-icons/fa";
 
@@ -38,12 +39,12 @@ const Header = () => {
     }, []);
 
     return (
-        <header className="w-full border-b border-gray-200 bg-white relative">
+        <header className="w-full border-b border-slate-200 bg-white/90 backdrop-blur-sm shadow-sm dark:border-slate-800 dark:bg-slate-950/95 relative">
             <div className="mx-auto max-w-7xl px-4 md:px-5 lg:px-10 py-4 flex items-center justify-between">
 
                 {/* Left */}
                 <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-blue-600 rounded-md relative overflow-hidden">
+                    <div className="w-8 h-8 bg-blue-600 rounded-md relative overflow-hidden shadow-sm shadow-blue-500/20">
                         <Image
                         src="/assets/icon.png"
                         alt="icon"
@@ -52,7 +53,7 @@ const Header = () => {
                         className="object-cover"                     
                         />
                     </div>
-                    <span className="font-semibold text-lg">LibriFlow</span>
+                    <span className="font-semibold text-lg text-slate-900 dark:text-white">LibriFlow</span>
                 </div>
 
                 {/* Desktop Navbar */}
@@ -62,12 +63,13 @@ const Header = () => {
 
                 {/* Right */}
                 <div className="flex items-center gap-3">
+                    <ThemeToggle />
 
                     <div className="text-right hidden sm:block">
                         {isPending ? (
                             <div className="space-y-1 animate-pulse">
-                                <div className="h-2 w-16 bg-gray-200 rounded"></div>
-                                <div className="h-3 w-24 bg-gray-300 rounded"></div>
+                                <div className="h-2 w-16 bg-slate-200 dark:bg-slate-700 rounded"></div>
+                                <div className="h-3 w-24 bg-slate-300 dark:bg-slate-600 rounded"></div>
                             </div>
                         ) : (
                             <>
@@ -103,7 +105,7 @@ const Header = () => {
                                     handleSignOut();
                                     closeMenu();
                                 }}
-                                className="bg-blue-50 px-3 sm:px-4 py-2 rounded-lg hover:bg-blue-100 transition"
+                                className="bg-blue-50 text-slate-900 px-3 sm:px-4 py-2 rounded-lg hover:bg-blue-100 transition dark:bg-blue-500/10 dark:text-slate-100 dark:hover:bg-blue-500/20"
                             >
                                 Sign Out
                             </button>
@@ -132,32 +134,35 @@ const Header = () => {
             {menuOpen && (
                 <div
                     ref={menuRef}
-                    className="md:hidden border-t border-gray-200 px-4 pb-4 space-y-4"
+                    className="md:hidden border-t border-slate-200 bg-white/95 dark:border-slate-800 dark:bg-slate-950/95 px-4 pb-4 space-y-4"
                 >
                     <div onClick={closeMenu}>
                         <Navbar mobile />
                     </div>
 
                     <div className="flex flex-col gap-2">
-                        {session?.user ? (
-                            <button
-                                onClick={() => {
-                                    handleSignOut();
-                                    closeMenu();
-                                }}
-                                className="bg-blue-50 px-4 py-2 rounded-lg text-left"
-                            >
-                                Sign Out
-                            </button>
-                        ) : (
-                            <Link
-                                href="/signin"
-                                onClick={closeMenu}
-                                className="bg-blue-600 text-white px-4 py-2 rounded-lg text-center"
-                            >
-                                Sign In
-                            </Link>
-                        )}
+                        <div className="flex items-center gap-2">
+                            <ThemeToggle />
+                            {session?.user ? (
+                                <button
+                                    onClick={() => {
+                                        handleSignOut();
+                                        closeMenu();
+                                    }}
+                                    className="bg-blue-50 text-slate-900 px-4 py-2 rounded-lg text-left hover:bg-blue-100 transition dark:bg-blue-500/10 dark:text-slate-100 dark:hover:bg-blue-500/20"
+                                >
+                                    Sign Out
+                                </button>
+                            ) : (
+                                <Link
+                                    href="/signin"
+                                    onClick={closeMenu}
+                                    className="bg-blue-600 text-white px-4 py-2 rounded-lg text-center"
+                                >
+                                    Sign In
+                                </Link>
+                            )}
+                        </div>
                     </div>
                 </div>
             )}

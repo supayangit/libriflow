@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const MiniFooter = () => {
     return (
-        <footer className="border-t border-gray-200 bg-gray-50 py-10 sm:py-14">
+        <footer className="border-t border-slate-200 bg-white/90 py-10 sm:py-14 dark:border-slate-800 dark:bg-slate-950/95">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10 lg:px-20 flex flex-col md:flex-row items-center justify-between gap-6">
 
                 {/* Left*/}
@@ -23,19 +23,19 @@ const MiniFooter = () => {
                 </div>
 
                 {/* Center*/}
-                <div className="text-center text-xs text-gray-500 mt-2.5 sm:mt-6 md:mt-10 px-4">
+                <div className="text-center text-xs text-slate-500 dark:text-slate-400 mt-2.5 sm:mt-6 md:mt-10 px-4">
                     © 2024 LibriFlow Digital Library. By Supayan C. All rights reserved.
                 </div>
 
                 {/* Right*/}
-                <div className="flex gap-5 text-sm text-gray-600 font-medium">
-                    <Link href="/privacy" className="hover:text-black transition">
+                <div className="flex gap-5 text-sm text-slate-600 dark:text-slate-300 font-medium">
+                    <Link href="/privacy" className="hover:text-slate-900 dark:hover:text-white transition">
                         Privacy
                     </Link>
-                    <Link href="/terms" className="hover:text-black transition">
+                    <Link href="/terms" className="hover:text-slate-900 dark:hover:text-white transition">
                         Terms
                     </Link>
-                    <Link href="/contact" className="hover:text-black transition">
+                    <Link href="/contact" className="hover:text-slate-900 dark:hover:text-white transition">
                         Contact
                     </Link>
                 </div>

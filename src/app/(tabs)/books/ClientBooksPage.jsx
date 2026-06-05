@@ -87,7 +87,7 @@ export default function ClientBooksPage() {
               w-10 h-10 rounded-md text-sm font-semibold transition
               ${currentPage === index
                                 ? "bg-blue-600 text-white shadow-md"
-                                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                                : "bg-slate-800 text-slate-200 hover:bg-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
                             }
             `}
                     >
