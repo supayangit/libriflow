@@ -80,6 +80,14 @@ const ProfilePage = () => {
 
     const user = session.user;
 
+    useEffect(() => {
+        if (user?.name) {
+            document.title = `${user.name} — Libriflow`;
+        } else {
+            document.title = `Profile — Libriflow`;
+        }
+    }, [user?.name]);
+
     return (
         <div className="flex justify-center px-4 sm:px-6 md:px-10 lg:px-20 py-10 sm:py-12 lg:py-16">
 
