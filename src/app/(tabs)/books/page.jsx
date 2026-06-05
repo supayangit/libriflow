@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import ClientBooksPage from "./ClientBooksPage";
 
 export const metadata = {
@@ -5,5 +6,9 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <ClientBooksPage />;
+  return (
+    <Suspense fallback="Loading...">
+      <ClientBooksPage />
+    </Suspense>
+  );
 }
