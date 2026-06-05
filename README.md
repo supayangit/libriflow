@@ -1,6 +1,29 @@
 # 📚 LibriFlow — Online Book Borrowing Platform
 
-A modern, full-stack digital library system built with Next.js and BetterAuth that allows users to explore, search, and borrow books seamlessly. The platform transforms the traditional library experience into a fast, secure, and responsive web application.
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:1e3a8a,100:0f172a&height=200&section=header&text=LibriFlow&fontSize=40&fontColor=ffffff" />
+</p>
+
+---
+
+## 📌 Project Overview
+
+**LibriFlow** is a modern full-stack digital library system built with **Next.js and BetterAuth** that enables users to explore, search, and borrow books seamlessly.
+
+It transforms the traditional library experience into a **fast, secure, and responsive web application** with modern UI/UX design and scalable architecture.
+
+---
+
+## 🚀 Live Links
+
+🔗 Live Site: https://libriflow-sup.vercel.app  
+💻 GitHub Repository: https://github.com/supayangit/libriflow  
+
+---
+
+## 📸 Screenshot
+
+<img width="1920" height="1080" alt="Screenshotl" src="https://github.com/user-attachments/assets/3d6691d3-903e-4806-a018-f162897c2c8f" />
 
 ---
 
@@ -137,6 +160,23 @@ react-hook-form
 react-icons
 react-fast-marquee
 
-## 🚀 Live URL
+---
 
-🔗 https://libriflow-sup.vercel.app
+## ⚙️ How to Run Locally
+1. Clone the repository
+git clone https://github.com/supayangit/libriflow.git
+2. Navigate into project directory
+cd libriflow
+3. Install dependencies
+npm install
+4. Start development server
+npm run dev
+5. Open in browser
+http://localhost:3000
+📦 Build for Production
+npm run build
+npm start
+🚀 Deployment
+Hosted on Vercel
+Fully optimized production build
+Fast performance with SSR + API routes
