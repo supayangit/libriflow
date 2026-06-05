@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Libriflow",
-  description: "Developed by Supayan",
+  description: "Developed by Supayan C",
 };
 
 export default function RootLayout({ children }) {
