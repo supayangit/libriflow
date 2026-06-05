@@ -139,10 +139,18 @@ const SigninPage = () => {
 
           {/* Google */}
           <Button
-            className="bg-white hover:bg-gray-50 text-black border border-gray-300 flex items-center justify-center gap-2 w-full py-2"
             onClick={handleGoogleSignIn}
+            className="
+    w-full flex items-center justify-center gap-2
+    bg-white dark:bg-slate-900
+    text-slate-900 dark:text-slate-100
+    border border-slate-200 dark:border-slate-800
+    hover:bg-slate-50 dark:hover:bg-slate-800
+    transition-colors duration-200
+    py-2
+  "
           >
-            <FaGoogle className="text-blue-500" />
+            <FaGoogle className="text-red-500" />
             Sign in with Google
           </Button>
 
