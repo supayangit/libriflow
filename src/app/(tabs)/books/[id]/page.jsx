@@ -15,6 +15,6 @@ export async function generateMetadata({ params }) {
   return { title: `Book — Libriflow` };
 }
 
-export default function Page({ params }) {
-  return <ClientBookPage params={params} />;
+export default function Page() {
+  return <ClientBookPage/>;
 }
