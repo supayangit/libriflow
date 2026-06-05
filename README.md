@@ -146,7 +146,6 @@ LibriFlow was built to digitize the traditional book borrowing system into a mod
 
 ## 📦 NPM Packages Used
 
-```bash
 next
 react
 react-dom
@@ -173,10 +172,10 @@ npm install
 npm run dev
 5. Open in browser
 http://localhost:3000
-📦 Build for Production
+### 📦 Build for Production
 npm run build
 npm start
-🚀 Deployment
+### 🚀 Deployment
 Hosted on Vercel
 Fully optimized production build
 Fast performance with SSR + API routes
