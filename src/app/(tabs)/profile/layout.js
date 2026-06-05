@@ -6,41 +6,54 @@ import { authClient } from "@/lib/auth-client";
 
 export default function ProfileLayout({ children }) {
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
-  const [authorized, setAuthorized] = useState(false);
+  const [status, setStatus] = useState("loading"); 
+  // loading | authorized | unauthorized
 
   useEffect(() => {
+    let isMounted = true;
+
     const checkAuth = async () => {
       try {
         const res = await authClient.getSession();
         const data = res?.data || res;
 
+        if (!isMounted) return;
+
         if (data?.user) {
-          setAuthorized(true);
+          setStatus("authorized");
         } else {
+          setStatus("unauthorized");
           router.replace("/signin");
         }
       } catch (err) {
         console.error(err);
-        router.replace("/signin");
-      } finally {
-        setLoading(false);
+        if (isMounted) {
+          setStatus("unauthorized");
+          router.replace("/signin");
+        }
       }
     };
 
     checkAuth();
+
+    return () => {
+      isMounted = false;
+    };
   }, [router]);
 
-  // Prevent UI glitch
-  if (loading) {
+  // LOADING STATE
+  if (status === "loading") {
     return (
-      <div className="min-h-screen flex items-center justify-center text-gray-500 bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center text-gray-500 bg-gray-50 dark:bg-slate-950">
         Checking authentication...
       </div>
     );
   }
 
-  if (!authorized) return null;
+  // BLOCK RENDER BEFORE REDIRECT
+  if (status !== "authorized") {
+    return null;
+  }
 
   return <>{children}</>;
 }
